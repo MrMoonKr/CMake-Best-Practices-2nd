@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required( VERSION 3.23 )
 
 project(
     "CMake Best Practices Chapter 2"
@@ -11,15 +11,14 @@ project(
     LANGUAGES CXX
 )
 
-message(STATUS "Current build type is `${CMAKE_BUILD_TYPE}`")
+message( STATUS "Current build type is `${CMAKE_BUILD_TYPE}`" )
 
 # Option to exclude driver application from build.
-set(CHAPTER2_BUILD_DRIVER_APPLICATION
-    TRUE
+set( CHAPTER2_BUILD_DRIVER_APPLICATION TRUE
     CACHE BOOL "Whether to include driver application in build. Default: True"
 )
 # Hide this option from GUI's by default.
-mark_as_advanced(CHAPTER2_BUILD_DRIVER_APPLICATION)
+mark_as_advanced( CHAPTER2_BUILD_DRIVER_APPLICATION )
 
 # MSVC requires these two flags to be set in order to link driver executable
 # against shared library.

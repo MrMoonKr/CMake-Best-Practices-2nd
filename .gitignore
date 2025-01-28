@@ -33,7 +33,6 @@
 
 #IDE specific
 build/
-.vscode
 .cache
 
 # Clangd language server files
