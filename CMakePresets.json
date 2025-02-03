@@ -7,6 +7,19 @@
     },
     "configurePresets": [
         {
+            "name": "msys2-g++-mingw-w64-make",
+            "displayName": "MSYS2 G++ Mingw-w64 Make",
+            "generator": "MinGW Makefiles",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "C:/msys64/ucrt64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe"
+            },
+            "environment": {
+                "PATH": "C:/msys64/ucrt64/bin;$ENV{PATH}"
+            }
+        },
+        {
             "name": "gcc-11",
             "description": "GCC 11 compiler",
             "hidden": true,
@@ -215,9 +228,25 @@
                 "afl-gcc"
             ],
             "displayName": "Ninja (Debug, AFL-GCC)"
+        },
+        {
+            "name": "Custom configure preset",
+            "displayName": "Custom configure preset",
+            "description": "Sets Ninja generator, build and install directory",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+            }
         }
     ],
     "buildPresets": [
+        {
+            "name": "msys2-g++-mingw-w64-make-build",
+            "configurePreset": "msys2-g++-mingw-w64-make",
+            "description": "Build using MSYS2 G++ Mingw-w64 Make"
+        },
         {
             "name": "ci-ninja-debug-build",
             "configurePreset": "ci-ninja-debug"
