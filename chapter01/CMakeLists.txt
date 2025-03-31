@@ -4,27 +4,23 @@
 
 cmake_minimum_required( VERSION 3.23 )
 
-project(
-    chapter_1
+project( chapter_1
     VERSION 1.0
     DESCRIPTION "Examples for chapter 1 of the CMake Best Practices book"
     LANGUAGES CXX
 )
 
 # Add subdirectories with a simple executable
-add_subdirectory(
-    simple_executable
-)
-add_subdirectory(
-    policy_example
-)
+add_subdirectory( simple_executable )
+add_subdirectory( policy_example )
 
 
-option(CHAPTER1_PRINT_LANGUAGE_EXAMPLES "Print examples for each language" OFF)
-include(CMakeDependentOption)
+option( CHAPTER1_PRINT_LANGUAGE_EXAMPLES "Print examples for each language" OFF )
+
+include( CMakeDependentOption )
 # create an option CHAPTER1_PRINT_HELLO_WORLD that is only visible of CHAPTER1_PRINT_LANGUAGE_EXAMPLES is set to ON
-cmake_dependent_option(CHAPTER1_PRINT_HELLO_WORLD "Print a nice greeting from chapter1" ON CHAPTER1_PRINT_LANGUAGE_EXAMPLES ON)
-mark_as_advanced(CHAPTER1_PRINT_LANGUAGE_EXAMPLES)
+cmake_dependent_option( CHAPTER1_PRINT_HELLO_WORLD "Print a nice greeting from chapter1" ON CHAPTER1_PRINT_LANGUAGE_EXAMPLES ON )
+mark_as_advanced( CHAPTER1_PRINT_LANGUAGE_EXAMPLES )
 
 if ( CHAPTER1_PRINT_LANGUAGE_EXAMPLES )
     if( CHAPTER1_PRINT_HELLO_WORLD )
@@ -72,5 +68,5 @@ if ( CHAPTER1_PRINT_LANGUAGE_EXAMPLES )
     endfunction() 
 
     # invoke foo with parameter bar 
-    foo(“bar”) 
+    foo( “bar” ) 
 endif()
