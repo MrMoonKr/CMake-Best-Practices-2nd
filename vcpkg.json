@@ -4,7 +4,8 @@
     "curl",
     "fmt",
     "nlohmann-json",
+    "pdcurses",
     "rapidjson",
-    "pdcurses"
+    "pcg"
   ]
 }

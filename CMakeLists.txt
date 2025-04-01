@@ -63,3 +63,5 @@ add_subdirectory( chapter00 )
 # add_subdirectory( chapter12 )
 # add_subdirectory( chapter13 )
 # add_subdirectory( chapter14 )
+
+add_subdirectory( game-blackjack )
